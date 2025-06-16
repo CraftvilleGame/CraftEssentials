@@ -1,14 +1,18 @@
-package nl.craftsmp.essentials.database.adapters;
+package nl.craftsmp.essentials.database.types;
 
 import com.craftmend.storm.Storm;
 import com.craftmend.storm.api.StormModel;
 import com.craftmend.storm.connection.hikaricp.HikariDriver;
+import com.craftmend.storm.parser.types.TypeRegistry;
+import com.craftmend.storm.parser.types.objects.StormTypeAdapter;
 import com.zaxxer.hikari.HikariConfig;
 import lombok.SneakyThrows;
 import nl.craftsmp.essentials.EssentialsPlugin;
 import nl.craftsmp.essentials.configuration.GlobalConfiguration;
+import nl.craftsmp.essentials.database.adapters.LocationAdapter;
 import nl.craftsmp.essentials.models.WarpModel;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 
 public class MySQLAdapter implements DatabaseAdapter {
 
@@ -30,6 +34,8 @@ public class MySQLAdapter implements DatabaseAdapter {
 
             Storm storm = new Storm(new HikariDriver(config));
             EssentialsPlugin.instance().database().storm(storm);
+
+            registerModels();
         } catch (Exception e) {
             EssentialsPlugin.instance().getLogger().severe("Couldn't connect to the MySQL Database: " + e.getMessage());
             EssentialsPlugin.instance().getLogger().severe("Plugin will shutdown!");
@@ -38,6 +44,8 @@ public class MySQLAdapter implements DatabaseAdapter {
     }
 
     public void registerModels() {
+        TypeRegistry.registerAdapter(Location.class, new LocationAdapter());
+
         registerStormModel(new WarpModel());
     }
 

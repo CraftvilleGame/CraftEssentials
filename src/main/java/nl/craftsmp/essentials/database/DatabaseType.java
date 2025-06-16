@@ -1,5 +1,5 @@
 package nl.craftsmp.essentials.database;
 
-public enum AdapterType {
+public enum DatabaseType {
     MYSQL, SQLITE;
 }

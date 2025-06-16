@@ -1,12 +1,14 @@
 package nl.craftsmp.essentials;
 
 import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.Accessors;
 import nl.craftsmp.essentials.annotation.AutoRegister;
-import nl.craftsmp.essentials.commands.EnderchestCommand;
 import nl.craftsmp.essentials.configuration.GlobalConfiguration;
 import nl.craftsmp.essentials.database.Database;
+import nl.craftsmp.essentials.managers.WarpManager;
+import nl.craftsmp.essentials.models.WarpModel;
+import nl.craftsmp.essentials.utils.commands.WarpParameterType;
+import nl.craftsmp.essentials.utils.commands.WarpSuggestionProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.reflections.Reflections;
 import revxrsal.commands.Lamp;
@@ -29,6 +31,8 @@ public class EssentialsPlugin extends JavaPlugin {
     private GlobalConfiguration globalConfiguration;
     private Lamp<BukkitCommandActor> lamp;
 
+    private WarpManager warpManager;
+
     @Override
     public void onEnable() {
         instance = this;
@@ -39,7 +43,17 @@ public class EssentialsPlugin extends JavaPlugin {
         database = new Database();
         database.connect();
 
+        warpManager = new WarpManager();
+        warpManager.loadWarps();
+
         lamp = BukkitLamp.builder(this)
+                .parameterTypes(builder -> {
+                    builder.addParameterType(WarpModel.class, new WarpParameterType());
+                })
+                .suggestionProviders(builder -> {
+                    builder.addProvider(WarpModel.class, new WarpSuggestionProvider());
+                })
+                .dependency(WarpManager.class, warpManager)
                 .build();
 
         autoRegisterCommands();
@@ -56,7 +70,7 @@ public class EssentialsPlugin extends JavaPlugin {
 
                 getLogger().info("Registering command: " + clazz.getSimpleName());
             } catch (Exception e) {
-                getLogger().severe("Couldn't register: " + clazz.getSimpleName());
+                getLogger().severe("Couldn't register: " + clazz.getSimpleName() + ": " + e.getMessage());
             }
         }
     }

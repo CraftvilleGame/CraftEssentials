@@ -1,4 +1,4 @@
-package nl.craftsmp.essentials.database.adapters;
+package nl.craftsmp.essentials.database.types;
 
 import com.craftmend.storm.Storm;
 import com.craftmend.storm.connection.sqlite.SqliteFileDriver;
