@@ -32,6 +32,11 @@ public class GamemodeCommand {
                 return;
             }
 
+            if (!player.hasPermission("craftessentials.command.gamemode.others")) {
+                ChatUtils.sendMessage(player, "<danger>Je hebt geen permissie om iemand zijn gamemodus te veranderen.");
+                return;
+            }
+
             player.setGameMode(mode);
             sender.sendMessage(ChatUtils.color("<primary>Je hebt je gamemode aangepast naar <secondary><gamemode><primary>.",
                     Placeholder.unparsed("gamemode", modeName(mode))

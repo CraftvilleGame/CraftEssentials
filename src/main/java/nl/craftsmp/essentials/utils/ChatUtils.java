@@ -5,6 +5,8 @@ import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
+import org.bukkit.command.CommandSender;
+import revxrsal.commands.bukkit.actor.BukkitCommandActor;
 
 @SuppressWarnings("ALL")
 public class ChatUtils {
@@ -23,6 +25,22 @@ public class ChatUtils {
 
     public static Component color(String message, TagResolver... resolvers) {
         return miniMessage.deserialize(message, resolvers);
+    }
+
+    public static void sendMessage(CommandSender receiver, String message) {
+        receiver.sendMessage(color(message));
+    }
+
+    public static void sendMessage(CommandSender receiver, String message, TagResolver... resolvers) {
+        receiver.sendMessage(color(message, resolvers));
+    }
+
+    public static void sendMessage(BukkitCommandActor actor, String message) {
+        actor.reply(color(message));
+    }
+
+    public static void sendMessage(BukkitCommandActor actor, String message, TagResolver... resolvers) {
+        actor.reply(color(message, resolvers));
     }
 
 }
