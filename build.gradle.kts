@@ -12,6 +12,7 @@ repositories {
     mavenCentral()
     gradlePluginPortal()
     maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://jitpack.io")
 }
 
 dependencies {
@@ -26,6 +27,12 @@ dependencies {
 
     /* Reflection */
     implementation("org.reflections:reflections:0.10.2")
+
+    /* Database */
+    compileOnly("com.zaxxer:HikariCP:6.3.0")
+    compileOnly("org.mariadb.jdbc:mariadb-java-client:3.5.3")
+    compileOnly("org.xerial:sqlite-jdbc:3.49.1.0")
+    implementation("com.github.Mindgamesnl:storm:e1f961b480")
 }
 
 java {
