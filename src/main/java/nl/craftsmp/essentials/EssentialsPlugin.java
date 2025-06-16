@@ -2,10 +2,7 @@ package nl.craftsmp.essentials;
 
 import lombok.Getter;
 import lombok.experimental.Accessors;
-import nl.craftsmp.essentials.commands.FlyCommand;
-import nl.craftsmp.essentials.commands.GamemodeCommand;
-import nl.craftsmp.essentials.commands.HealCommand;
-import nl.craftsmp.essentials.commands.TeleportCommand;
+import nl.craftsmp.essentials.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import revxrsal.commands.Lamp;
 import revxrsal.commands.bukkit.BukkitLamp;
@@ -31,6 +28,8 @@ public class EssentialsPlugin extends JavaPlugin {
         lamp.register(new TeleportCommand());
         lamp.register(new HealCommand());
         lamp.register(new FlyCommand());
+        lamp.register(new EnderchestCommand());
+        lamp.register(new LoopCommand());
     }
 
 
