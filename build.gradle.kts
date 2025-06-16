@@ -1,6 +1,7 @@
 plugins {
     id("java")
     id("io.freefair.lombok") version "8.13.1"
+    id("com.gradleup.shadow") version "8.3.0"
     id("io.papermc.paperweight.userdev") version "2.0.0-beta.17"
 }
 
@@ -18,10 +19,10 @@ dependencies {
     paperweight.paperDevBundle("1.21.5-R0.1-SNAPSHOT")
 
     /* Lamp */
-    val lampVersion = "4.0.0-beta.19"
+    val lampVersion = "4.0.0-rc.12"
     implementation("io.github.revxrsal:lamp.common:$lampVersion")
-    implementation("io.github.revxrsal:lamp.paper:$lampVersion")
-
+    implementation("io.github.revxrsal:lamp.bukkit:$lampVersion")
+    implementation("io.github.revxrsal:lamp.brigadier:$lampVersion")
 }
 
 java {
