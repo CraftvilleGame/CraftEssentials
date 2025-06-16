@@ -4,15 +4,15 @@ import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import nl.craftsmp.essentials.utils.ChatUtils;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import revxrsal.commands.annotation.Command;
-import revxrsal.commands.bukkit.actor.BukkitCommandActor;
+import revxrsal.commands.annotation.Description;
 import revxrsal.commands.bukkit.annotation.CommandPermission;
 import revxrsal.commands.bukkit.parameters.EntitySelector;
 
 @Command({"heal"})
+@Description("Heals you or someone else.")
 public class HealCommand {
 
     @CommandPermission("craftessentials.command.heal")

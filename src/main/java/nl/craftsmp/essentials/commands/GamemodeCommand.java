@@ -5,13 +5,11 @@ import nl.craftsmp.essentials.utils.ChatUtils;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import revxrsal.commands.annotation.Command;
-import revxrsal.commands.annotation.Optional;
-import revxrsal.commands.annotation.Single;
-import revxrsal.commands.annotation.Suggest;
+import revxrsal.commands.annotation.*;
 import revxrsal.commands.bukkit.annotation.CommandPermission;
 
 @Command({"gamemode", "gm"})
+@Description("Changes your or someone elses gamemode.")
 public class GamemodeCommand {
 
     @CommandPermission("craftessentials.command.gamemode")

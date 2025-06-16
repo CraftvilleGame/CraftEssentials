@@ -8,6 +8,7 @@ import nl.craftsmp.essentials.tasks.LoopCommandTask;
 import nl.craftsmp.essentials.utils.ChatUtils;
 import org.bukkit.entity.Player;
 import revxrsal.commands.annotation.Command;
+import revxrsal.commands.annotation.Description;
 import revxrsal.commands.annotation.Subcommand;
 import revxrsal.commands.bukkit.annotation.CommandPermission;
 
@@ -18,6 +19,7 @@ import java.util.UUID;
 @Getter
 @Accessors(fluent = true)
 @Command({"loop"})
+@Description("Allows you to loop a command.")
 public class LoopCommand {
 
     private Map<UUID, LoopCommandTask> loopTasks = new HashMap<>();
@@ -50,6 +52,7 @@ public class LoopCommand {
     }
 
     @Subcommand({"stop"})
+    @CommandPermission("craftessentials.command.loop")
     public void stopLoopCommand(Player player) {
         LoopCommandTask task = loopTasks.get(player.getUniqueId());
         if (task == null) {
