@@ -1,6 +1,7 @@
 package nl.craftsmp.essentials.commands;
 
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import nl.craftsmp.essentials.annotation.AutoRegister;
 import nl.craftsmp.essentials.utils.ChatUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -8,6 +9,7 @@ import revxrsal.commands.annotation.Command;
 import revxrsal.commands.annotation.Description;
 import revxrsal.commands.bukkit.annotation.CommandPermission;
 
+@AutoRegister
 @Command({"fly", "flight"})
 @Description("Allows you to set your fly state.")
 public class FlyCommand {

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.experimental.Accessors;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import nl.craftsmp.essentials.EssentialsPlugin;
+import nl.craftsmp.essentials.annotation.AutoRegister;
 import nl.craftsmp.essentials.tasks.LoopCommandTask;
 import nl.craftsmp.essentials.utils.ChatUtils;
 import org.bukkit.entity.Player;
@@ -16,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+@AutoRegister
 @Getter
 @Accessors(fluent = true)
 @Command({"loop"})

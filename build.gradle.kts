@@ -23,6 +23,9 @@ dependencies {
     implementation("io.github.revxrsal:lamp.common:$lampVersion")
     implementation("io.github.revxrsal:lamp.bukkit:$lampVersion")
     implementation("io.github.revxrsal:lamp.brigadier:$lampVersion")
+
+    /* Reflection */
+    implementation("org.reflections:reflections:0.10.2")
 }
 
 java {

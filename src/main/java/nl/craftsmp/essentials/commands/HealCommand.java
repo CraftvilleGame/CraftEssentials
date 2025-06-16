@@ -1,6 +1,7 @@
 package nl.craftsmp.essentials.commands;
 
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import nl.craftsmp.essentials.annotation.AutoRegister;
 import nl.craftsmp.essentials.utils.ChatUtils;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.command.CommandSender;
@@ -11,6 +12,7 @@ import revxrsal.commands.annotation.Description;
 import revxrsal.commands.bukkit.annotation.CommandPermission;
 import revxrsal.commands.bukkit.parameters.EntitySelector;
 
+@AutoRegister
 @Command({"heal"})
 @Description("Heals you or someone else.")
 public class HealCommand {

@@ -1,6 +1,7 @@
 package nl.craftsmp.essentials.commands;
 
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import nl.craftsmp.essentials.annotation.AutoRegister;
 import nl.craftsmp.essentials.utils.ChatUtils;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
@@ -8,6 +9,7 @@ import org.bukkit.entity.Player;
 import revxrsal.commands.annotation.*;
 import revxrsal.commands.bukkit.annotation.CommandPermission;
 
+@AutoRegister
 @Command({"gamemode", "gm"})
 @Description("Changes your or someone elses gamemode.")
 public class GamemodeCommand {
