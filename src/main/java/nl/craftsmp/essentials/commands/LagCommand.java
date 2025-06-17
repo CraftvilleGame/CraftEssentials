@@ -24,7 +24,8 @@ public class LagCommand {
         double tps = Bukkit.getTPS()[0];
 
 
-        ChatUtils.sendMessage(sender, "<primary>Current TPS: <tps><reset><br>" +
+        ChatUtils.sendMessage(sender,
+                "<primary>Current TPS: <tps><reset><br>" +
                         "<primary>Maximum Memory: <secondary><max_memory><br>" +
                         "<primary>Allocated Memory: <secondary><allocated_memory><br>" +
                         "<primary>Free Memory: <secondary><free_memory>",
